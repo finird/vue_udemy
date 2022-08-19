@@ -1,6 +1,6 @@
 const app = Vue.createApp({
   data() {
-    return { courseGoals: 'Hahaha' };
+    return { courseGoals: 'Hahaha', vueLink: 'https://vuejs.org' };
   }
 });
 
