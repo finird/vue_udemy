@@ -8,7 +8,11 @@ const app = Vue.createApp({
   },
   methods: {
     outputGoal() {
-      return "Master Vue!";
+      const value = Math.random();
+      if (value < 0.5) {
+        return "Master Vue!";
+      }
+      return "Go pro Vue!";
     },
   },
 });
