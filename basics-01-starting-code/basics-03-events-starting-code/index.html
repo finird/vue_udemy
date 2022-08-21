@@ -18,7 +18,9 @@
 </header>
 <section id="events">
     <h2>Events in Action</h2>
+    <!-- ✅pointing or invoking methods with events is legal-->
     <button v-on:click="add(10)">Add</button>
+    <!-- ✅pointing or invoking methods with events is legal-->
     <button v-on:click.right="reduce(5)">Remove (Right click)</button>
     <input
             type="text"
@@ -27,7 +29,12 @@
             @input="setName($event, 'DL')"
             v-on:keyup.enter="confirmName"
     />
-    <p>My name: {{ confirmedName }}</p>
+    <!-- 👎 This will re-call any time the data changed (no matter this method depend on any data or not).-->
+    <!-- ✅  Use computed properties instead.-->
+    <!-- ✅  Do NOT use methods to output data.-->
+    <!-- ✅  Just point at methods to events-->
+    <!-- ✅  Just use methods if you want to listen to any changes occurring in the data.-->
+    <p v-bind:custom-title="seeName()">My name: {{ confirmedName }}</p>
     <p v-once>Starting counter (first value entered): {{ counter }}</p>
     <p>Result: {{ counter }}</p>
     <input

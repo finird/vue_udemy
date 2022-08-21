@@ -20,6 +20,10 @@ const app = Vue.createApp({
     resetSelfIntroduction() {
       this.introduction = "";
     },
+    seeName() {
+      console.log("seeName get called again...");
+      return "WOW";
+    },
     // old way of preventDefault -> We use Vue's modifiers instead of this
     // submitForm(event) {
     //   event.preventDefault();
