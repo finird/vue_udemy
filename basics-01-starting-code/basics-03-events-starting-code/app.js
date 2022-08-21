@@ -15,6 +15,14 @@ const app = Vue.createApp({
     setName(event, lastName) {
       this.name = event.target.value + lastName;
     },
+    // old way of preventDefault -> We use Vue's modifiers instead of this
+    // submitForm(event) {
+    //   event.preventDefault();
+    //   alert("Submitted!");
+    // },
+    submitForm() {
+      alert("Submitted!");
+    },
   },
 });
 

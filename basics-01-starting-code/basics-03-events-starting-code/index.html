@@ -23,6 +23,11 @@
     <input type="text" name="name" id="name" @input="setName($event, 'DL')"/>
     <p>My name: {{ name }}</p>
     <p>Result: {{ counter }}</p>
+    <!--  Using Vue's modifiers instead of (event.preventDefault() in handler function)  -->
+    <form v-on:submit.prevent="submitForm">
+        <input type="text">
+        <button type="submit">Send</button>
+    </form>
 </section>
 </body>
 </html>
