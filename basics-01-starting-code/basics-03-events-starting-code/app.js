@@ -17,9 +17,6 @@ const app = Vue.createApp({
     setName(event, lastName) {
       this.name = event.target.value + lastName;
     },
-    setSelfIntroduction(event) {
-      this.introduction = event.target.value;
-    },
     resetSelfIntroduction() {
       this.introduction = "";
     },
