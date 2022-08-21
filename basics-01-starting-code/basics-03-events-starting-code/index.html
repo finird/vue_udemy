@@ -29,6 +29,8 @@
             @input="setName($event, 'DL')"
             v-on:keyup.enter="confirmName"
     />
+    <!-- Cannot invoke computed properties as a method, just works like an variable -->
+    <p>Your full name: {{ fullName }}</p>
     <!-- 👎 This will re-call any time the data changed (no matter this method depend on any data or not).-->
     <!-- ✅  Use computed properties instead.-->
     <!-- ✅  Do NOT use methods to output data.-->
