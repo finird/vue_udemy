@@ -28,6 +28,7 @@
             v-on:keyup.enter="confirmName"
     />
     <p>My name: {{ confirmedName }}</p>
+    <p v-once>Starting counter (first value entered): {{ counter }}</p>
     <p>Result: {{ counter }}</p>
     <!--  Using Vue's modifiers instead of (event.preventDefault() in handler function)  -->
     <form v-on:submit.prevent="submitForm">
