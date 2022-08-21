@@ -28,8 +28,7 @@
             @click="setBoxSelect(1)"
     ></div>
     <div
-            class="demo"
-            :class="{ activateBox: boxSelected[2] }"
+            :class="['demo', 'nothingHere', { activateBox: boxSelected[2] }]"
             @click="setBoxSelect(2)"
     ></div>
 </section>
