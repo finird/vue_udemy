@@ -19,18 +19,18 @@
 <section id="styling">
     <div
             class="demo"
+            :class="{ activateBox: boxSelected[0] }"
             @click="setBoxSelect(0)"
-            :style="boxSelected[0] ? { borderColor: 'red' } : {} "
     ></div>
     <div
             class="demo"
+            :class="{ activateBox: boxSelected[1] }"
             @click="setBoxSelect(1)"
-            :style="boxSelected[1] ? { borderColor: 'red' } : {} "
     ></div>
     <div
             class="demo"
+            :class="{ activateBox: boxSelected[2] }"
             @click="setBoxSelect(2)"
-            :style="boxSelected[2] ? { borderColor: 'red' }: {} "
     ></div>
 </section>
 </body>
