@@ -30,6 +30,12 @@
     <p>My name: {{ confirmedName }}</p>
     <p v-once>Starting counter (first value entered): {{ counter }}</p>
     <p>Result: {{ counter }}</p>
+    <input type="text" name="introduction" id="introduction"
+           v-on:input="setSelfIntroduction"
+           v-bind:value="introduction"
+    >
+    <button v-on:click="resetSelfIntroduction">Clear Introduce</button>
+    <p>Introduction: {{ introduction }}</p>
     <!--  Using Vue's modifiers instead of (event.preventDefault() in handler function)  -->
     <form v-on:submit.prevent="submitForm">
         <input type="text"/>

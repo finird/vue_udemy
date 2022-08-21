@@ -4,6 +4,7 @@ const app = Vue.createApp({
       counter: 0,
       name: "",
       confirmedName: "",
+      introduction: "",
     };
   },
   methods: {
@@ -15,6 +16,12 @@ const app = Vue.createApp({
     },
     setName(event, lastName) {
       this.name = event.target.value + lastName;
+    },
+    setSelfIntroduction(event) {
+      this.introduction = event.target.value;
+    },
+    resetSelfIntroduction() {
+      this.introduction = "";
     },
     // old way of preventDefault -> We use Vue's modifiers instead of this
     // submitForm(event) {
