@@ -19,13 +19,19 @@
 <section id="events">
     <h2>Events in Action</h2>
     <button v-on:click="add(10)">Add</button>
-    <button v-on:click="reduce(5)">Remove</button>
-    <input type="text" name="name" id="name" @input="setName($event, 'DL')"/>
-    <p>My name: {{ name }}</p>
+    <button v-on:click.right="reduce(5)">Remove (Right click)</button>
+    <input
+            type="text"
+            name="name"
+            id="name"
+            @input="setName($event, 'DL')"
+            v-on:keyup.enter="confirmName"
+    />
+    <p>My name: {{ confirmedName }}</p>
     <p>Result: {{ counter }}</p>
     <!--  Using Vue's modifiers instead of (event.preventDefault() in handler function)  -->
     <form v-on:submit.prevent="submitForm">
-        <input type="text">
+        <input type="text"/>
         <button type="submit">Send</button>
     </form>
 </section>
