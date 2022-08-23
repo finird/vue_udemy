@@ -20,10 +20,13 @@
       <h2>My course goals</h2>
       <input type="text" />
       <button>Add Goal</button>
-      <p>No goals have been added yet - please start adding some!</p>
-      <ul>
+      <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
+      <ul v-else-if="goals.length > 0">
         <li>Goal</li>
       </ul>
+      <p v-else>
+        ...
+      </p>
     </section>
   </body>
 </html>
