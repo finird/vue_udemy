@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/vue@next" defer></script>
     <script src="app.js" defer></script>
+    <script src="app2.js" defer></script>
   </head>
   <body>
     <header>
@@ -21,6 +22,14 @@
       <input type="text" @input="saveInput">
       <button @click="setText">Set Text</button>
       <p>{{ message }}</p>
+    </section>
+    <section>
+      <hr />
+      <h2 style="text-align: center">App 2 scope</h2>
+      <div id="app2">
+        <button @click="changeMessage">Update message</button>
+        <p>{{ message }}</p>
+      </div>
     </section>
   </body>
 </html>
