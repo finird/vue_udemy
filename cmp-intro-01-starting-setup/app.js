@@ -1,7 +1,6 @@
-Vue.createApp({
+const app = Vue.createApp({
   data() {
     return {
-      isDetailsVisible: false,
       friends: [
         {
           id: 'manuel',
@@ -18,10 +17,49 @@ Vue.createApp({
       ]
     }
   },
+});
+
+app.component('friend', {
+  template: `
+  <li>
+    <h2>{{ name }}</h2>
+    <button @click="toggleDetails">{{ isDetailsVisible ? 'Hide' : 'Show' }} Details</button>
+    <ul v-if="isDetailsVisible">
+      <li><strong>Phone:</strong> {{ phone }}</li>
+      <li><strong>Email:</strong> {{ email }}</li>
+    </ul>
+  </li>
+  `,
+  props: {
+    friend: {
+      type: Object
+    },
+  },
+  computed: {
+    id() {
+      return this.friend.id;
+    },
+    name() {
+      return this.friend.name;
+    },
+    phone() {
+      return this.friend.phone;
+    },
+    email() {
+      return this.friend.email;
+    },
+  },
+  data() {
+    return {
+      isDetailsVisible: false,
+    }
+  },
   methods: {
-    // all friend items listen to this visible state => not isolated
     toggleDetails() {
       this.isDetailsVisible = !this.isDetailsVisible;
     }
   }
-}).mount('#app');
+});
+
+
+app.mount('#app');
