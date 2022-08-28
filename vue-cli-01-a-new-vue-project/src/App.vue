@@ -7,7 +7,7 @@
         v-for="friend in friends"
         :key="friend.id"
         :friend="friend"
-        :toggle-favorite="toggleFriendIsFavorite"
+        @toggle-favorite="toggleFriendIsFavorite"
     />
   </ul>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <li>
     <h2
-        @click="toggleFriendIsFavorite(friend.id)"
+        @click="toggleFavorite"
     >
       {{ friend.name }} {{ friend.isFavorite ? "(Favorite)" : "" }}
     </h2>
@@ -21,11 +21,6 @@ export default {
       type: Object,
       required: true,
     },
-    toggleFavorite: {
-      type: Function,
-      required: true,
-      default: () => {},
-    }
   },
   data() {
     return {
@@ -36,7 +31,10 @@ export default {
     toggleShowDetails() {
       this.areDetailsVisible = !this.areDetailsVisible;
     },
-  }
+    toggleFavorite() {
+      this.$emit('toggle-favorite', this.friend.id);
+    },
+  },
 };
 
 </script>
