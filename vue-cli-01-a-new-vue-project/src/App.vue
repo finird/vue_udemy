@@ -3,7 +3,12 @@
     <h1>Hello, Vue!</h1>
   </header>
   <ul>
-    <friend-details v-for="friend in friends" :key="friend.id" :friend="friend" />
+    <friend-details
+        v-for="friend in friends"
+        :key="friend.id"
+        :friend="friend"
+        :toggle-favorite="toggleFriendIsFavorite"
+    />
   </ul>
 </template>
 
@@ -18,16 +23,24 @@ export default {
           name: 'Manuel Lorenz',
           email: 'manuel@localhost.com',
           phone: '01234 5678 991',
+          isFavorite: false,
         },
         {
           id: 'julie',
           name: 'Julie Jones',
           email: 'julie@localhost.com',
           phone: '09876 543 221',
+          isFavorite: false,
         },
       ]
     };
   },
+  methods: {
+    toggleFriendIsFavorite(id) {
+      const identifiedFriend = this.friends.find(friend => friend.id === id);
+      identifiedFriend.isFavorite = !identifiedFriend.isFavorite;
+    },
+  }
 }
 
 </script>

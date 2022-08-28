@@ -1,6 +1,10 @@
 <template>
   <li>
-    <h2>{{ friend.name }}</h2>
+    <h2
+        @click="toggleFriendIsFavorite(friend.id)"
+    >
+      {{ friend.name }} {{ friend.isFavorite ? "(Favorite)" : "" }}
+    </h2>
     <button @click="toggleShowDetails">{{ areDetailsVisible ? 'Hide' : 'Show'}} details</button>
     <ul v-if="areDetailsVisible">
       <li><strong>Phone: </strong>{{ friend.phone }}</li>
@@ -17,6 +21,11 @@ export default {
       type: Object,
       required: true,
     },
+    toggleFavorite: {
+      type: Function,
+      required: true,
+      default: () => {},
+    }
   },
   data() {
     return {
