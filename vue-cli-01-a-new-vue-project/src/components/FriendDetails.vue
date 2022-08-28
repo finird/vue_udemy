@@ -22,6 +22,11 @@ export default {
       required: true,
     },
   },
+  emits: {
+    'toggle-favorite': function(id) {
+      return !!id;
+    }
+  },
   data() {
     return {
       areDetailsVisible: false
