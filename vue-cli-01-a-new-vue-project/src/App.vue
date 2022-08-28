@@ -2,19 +2,20 @@
   <header>
     <h1>Hello, Vue!</h1>
   </header>
-  <ul>
-    <friend-details
-        v-for="friend in friends"
-        :key="friend.id"
-        :friend="friend"
-        @toggle-favorite="toggleFriendIsFavorite"
-    />
-  </ul>
+  <NewFriend @add-friend="addFriendHandler"/>
+  <FriendsList
+    @toggle-favorite="toggleFriendIsFavorite"
+    @delete-friend="deleteFriendHandler"
+    :friends="friends"/>
 </template>
 
 <script>
 
+import NewFriend from "@/components/friends/newFriend/NewFriend";
+import FriendsList from "@/components/friends/FriendsList";
+
 export default {
+  components: {FriendsList, NewFriend},
   data() {
     return {
       friends: [
@@ -32,7 +33,7 @@ export default {
           phone: '09876 543 221',
           isFavorite: false,
         },
-      ]
+      ],
     };
   },
   methods: {
@@ -41,6 +42,12 @@ export default {
       if (!identifiedFriend) return;
       identifiedFriend.isFavorite = !identifiedFriend.isFavorite;
     },
+    addFriendHandler(newFriend) {
+      this.friends.unshift(newFriend);
+    },
+    deleteFriendHandler(friendId) {
+      this.friends = this.friends.filter(({id}) => id !== friendId)
+    }
   }
 }
 
@@ -74,13 +81,13 @@ header {
   max-width: 40rem;
 }
 
-#app ul {
+ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-#app li {
+li {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 1rem auto;
   border-radius: 10px;
@@ -90,14 +97,14 @@ header {
   max-width: 40rem;
 }
 
-#app h2 {
+h2 {
   font-size: 2rem;
   border-bottom: 4px solid #ccc;
   color: #58004d;
   margin: 0 0 1rem 0;
 }
 
-#app button {
+button {
   font: inherit;
   cursor: pointer;
   border: 1px solid #ff0077;
@@ -107,11 +114,15 @@ header {
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
 }
 
-#app button:hover,
-#app button:active {
+button:hover,
+button:active {
   background-color: #ec3169;
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
+
+.mt--1 {
+  margin-top: 1rem;
 }
 
 </style>
